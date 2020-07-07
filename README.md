@@ -1,6 +1,11 @@
 # egg-elkApm
 
-在egg框架中接入elk+apm日志管理平台
+在 egg 框架中接入 elk+apm 日志管理平台
+
+## 备注
+
+1. 应用 http 请求链路日志记录和上传(完成)
+2. 应用错误 error 记录和上传
 
 ## QuickStart
 
@@ -12,8 +17,8 @@ see [egg docs][egg] for more detail.
 
 ```bash
 $ npm i
-$ npm run dev
-$ open http://localhost:7001/
+$ npm run debug
+$ curl 127.0.0.1:7001/getUser
 ```
 
 ### Deploy
@@ -28,6 +33,5 @@ $ npm stop
 - Use `npm run lint` to check code style.
 - Use `npm test` to run unit test.
 - Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
-
 
 [egg]: https://eggjs.org
