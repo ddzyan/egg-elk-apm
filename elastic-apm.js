@@ -20,7 +20,7 @@ if (
     '@eggjs/router',
     require.resolve('./instrumentation/egg-router')
   );
-  apm.addFilter((payload) => {
+  apm.addFilter(payload => {
     const method =
       payload.context &&
       payload.context.request &&

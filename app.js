@@ -4,9 +4,9 @@ const apm = require('./elastic-apm');
 // const onerror = require('koa-onerror');
 const ApmErrorTransport = require('./lib/apm-error-transport');
 
-module.exports = (app) => {
+module.exports = app => {
   // 中间件，修正apm transaction unknown router
-  //app.config.middleware.unshift('apmRouter');
+  // app.config.middleware.unshift('apmRouter');
 
   app.beforeStart(async () => {
     // 将APM实例挂载到application对象上面。

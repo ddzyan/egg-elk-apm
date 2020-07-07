@@ -1,12 +1,12 @@
 'use strict';
 const shimmer = require('elastic-apm-node/lib/instrumentation/shimmer');
 
-module.exports = function (Router, agent, { version, enabled }) {
+module.exports = function(Router, agent, { version, enabled }) {
   if (!enabled) return Router;
 
-  agent.logger.debug('shimming koa-router prototype.match function');
-  shimmer.wrap(Router.prototype, 'match', function (orig) {
-    return function (_, method) {
+  agent.logger.debug('shimming koa-router prototype.match function', version);
+  shimmer.wrap(Router.prototype, 'match', function(orig) {
+    return function(_, method) {
       const matched = orig.apply(this, arguments);
 
       if (typeof method !== 'string') {
@@ -18,13 +18,13 @@ module.exports = function (Router, agent, { version, enabled }) {
       }
 
       if (Array.isArray(matched && matched.pathAndMethod)) {
-        const layer = matched.pathAndMethod.find(function (layer) {
+        const layer = matched.pathAndMethod.find(function(layer) {
           return layer && layer.opts && layer.opts.end === true;
         });
 
-        var path = layer && layer.path;
+        const path = layer && layer.path;
         if (typeof path === 'string') {
-          var name = method + ' ' + path;
+          const name = method + ' ' + path;
           agent._instrumentation.setDefaultTransactionName(name);
         } else {
           agent.logger.debug(
