@@ -13,7 +13,8 @@ if (
   console.log('Start apm agent...');
   // apm options 将直接从应用环境变量中读取，并且进行初始化
   apm = require('elastic-apm-node').start({
-    captureBodyedit: 'all',
+    // captureBodyedit: 'all',
+    metricsInterval: 0,
   });
   apm.addPatch('egg', require.resolve('./instrumentation/egg'));
   apm.addPatch(

@@ -10,7 +10,6 @@ module.exports = app => {
 
   app.beforeStart(async () => {
     // 将APM实例挂载到application对象上面。
-    // 目前只有在middleware -> apmRouter 里面使用到 app.apm
     app.apm = apm;
     // 设置错误日志的传输通道。所有logger.error的错误，都会发送到APM上面。
     app
