@@ -55,7 +55,7 @@ output.elasticsearch:
 ./apm-server -e
 ```
 
-打开浏览器地址：http://47.100.16.124:5601/
+打开浏览器地址：http://127.0.0.1:5601/
 
 账号：elastic
 
@@ -66,7 +66,7 @@ output.elasticsearch:
 ```json
 {
   "script":{
-    "debug": "ELASTIC_APM_SERVICE_NAME=test-0000 ELASTIC_APM_SERVER_URL='http://10.10.0.130:8200' egg-bin debug --require=egg-apm-agent/apm-register.js",
+    "debug": "ELASTIC_APM_SERVICE_NAME=test-0000 ELASTIC_APM_SERVER_URL='http://127.0.0.1:8200' egg-bin debug --require=egg-apm-agent/apm-register.js",
   }
 }
 ```
