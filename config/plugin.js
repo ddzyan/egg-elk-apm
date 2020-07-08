@@ -2,8 +2,9 @@
 
 /** @type Egg.EggPlugin */
 module.exports = {
-  // had enabled by egg
-  // static: {
-  //   enable: true,
-  // }
+  eggApmAgent: {
+    enable: true,
+    package: 'egg-apm-agent',
+    // env: [ 'prod' ], // 建议只在生产环境中启用
+  },
 };
