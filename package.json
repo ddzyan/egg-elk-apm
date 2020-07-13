@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "egg": "^2.15.1",
-    "egg-apm-agent": "^2.0.1",
+    "egg-apm-agent": "^2.0.5",
     "egg-scripts": "^2.11.0"
   },
   "devDependencies": {
@@ -24,15 +24,15 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-egg-elkApm",
+    "start": "egg-scripts start --daemon --title=egg-server-egg-elkApm --require=egg-apm-agent/apm-register.js",
     "stop": "egg-scripts stop --title=egg-server-egg-elkApm",
     "dev": "egg-bin dev",
-    "debug": "ELASTIC_APM_SERVICE_NAME=test-0000 ELASTIC_APM_SERVER_URL='http://10.10.0.130:8200' egg-bin debug --require=egg-apm-agent/apm-register.js",
+    "debug": "egg-bin debug --require=egg-apm-agent/apm-register.js",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",
     "lint": "eslint .",
-    "ci": "npm run lint && npm run cov",
+    "clear":"rm -rf ./node_modules ./logs ./run",
     "autod": "autod"
   },
   "ci": {

@@ -7,6 +7,23 @@ class HomeController extends Controller {
     const { ctx } = this;
     ctx.body = 'hi, egg';
   }
+
+  async addUser() {
+    const { ctx } = this;
+    const { name, age } = ctx.request.body;
+    ctx.body = {
+      name,
+      age,
+    };
+  }
+
+  async getUser() {
+    const { ctx } = this;
+    const { name } = ctx.request.query;
+    ctx.body = {
+      name,
+    };
+  }
 }
 
 module.exports = HomeController;
