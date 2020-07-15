@@ -9,14 +9,6 @@
 搭建 elk + apm 平台，请参考 http://www.zmscode.cn/2020/07/09/docker-compose%E9%83%A8%E7%BD%B2eak/
 
 ### 启动项目
-修改package.json ,添加启动脚本
-```json
-{
-  "script":{
-    "debug": "egg-bin debug --require=egg-apm-agent/apm-register.js",
-  }
-}
-```
 
 修改 start.sh 中 apm-agent 环境变量
 

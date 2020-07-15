@@ -24,6 +24,10 @@ class HomeController extends Controller {
       name,
     };
   }
+
+  async getError() {
+    throw new Error('测试');
+  }
 }
 
 module.exports = HomeController;
